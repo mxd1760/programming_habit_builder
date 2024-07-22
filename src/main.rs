@@ -2,6 +2,7 @@ use eframe::egui;
 
 mod views;
 mod project;
+mod util;
 
 
 struct MyApp{
@@ -22,7 +23,10 @@ impl eframe::App for MyApp{
         
       });
       egui::CentralPanel::default().show(ctx,|ui|{
-        self.current_view.render(ui);
+        match self.current_view.render(ui){
+          views::ViewEvent::SwitchView(new_view) => self.current_view = new_view,
+          views::ViewEvent::DoNothing => (),
+        }
       });
   }
 }

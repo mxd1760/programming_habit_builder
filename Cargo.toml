@@ -8,4 +8,6 @@ edition = "2021"
 [dependencies]
 dirs = "5.0.1"
 eframe = "0.27.2"
+serde = { version = "1.0.204", features = ["serde_derive"] }
+serde_yaml = "0.9.34"
 walkdir = "2.5.0"
