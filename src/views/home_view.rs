@@ -1,5 +1,5 @@
 use crate::views::View;
-use crate::project::Project;
+use crate::data::Project;
 use eframe::egui;
 
 use super::ViewEvent;

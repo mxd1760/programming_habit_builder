@@ -3,10 +3,12 @@ use serde::{Serialize,Deserialize};
 
 use eframe::egui::{self, Response};
 
+use super::Task;
 
 #[derive(Clone,Serialize,Deserialize)]
 pub struct Project{
-  pub name:String
+  pub name:String,
+  pub tasks:Vec<Task>,
 }
 
 impl Project{
@@ -44,6 +46,9 @@ impl Project{
     Ok(0)
   }
   pub fn new(name:String)->Self{
-    Self { name: name }
+    Self { 
+      name: name,
+      tasks: vec![] 
+    }
   }
 }

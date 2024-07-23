@@ -1,7 +1,7 @@
 use eframe::egui;
 
 mod views;
-mod project;
+mod data;
 mod util;
 
 
