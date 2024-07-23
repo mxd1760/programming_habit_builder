@@ -33,10 +33,20 @@ impl View for ProjectView{
           return super::ViewEvent::SwitchView(Box::new(super::HomeView::new()))
         }
         ui.label(&self.project.name);
-    
+        
+        // filter by match
+        // TODO how to apply mutliple filters at once
+          // nested loop with variable for pattern?
         for t in &mut self.project.tasks{
-          t.draw_checkbox(ui);
-        } 
+          if !t.done {
+            t.draw_checkbox(ui);
+          }
+        }
+        for t in &mut self.project.tasks{
+          if t.done {
+            t.draw_checkbox(ui);
+          }
+        }
 
         if ui.button("Edit").clicked(){
           self.mode = PVMode::Edit;
